@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Muzi Adriyan, pelajar dan web developer yang aktif mempelajari teknologi serta membangun berbagai proyek digital.">
+    <meta name="keywords" content="web developer, portfolio, muzi adriyan, digital creator, programming">
+    <meta name="author" content="Muzi Adriyan">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Muzi Adriyan — Web Developer & Digital Creator">
+    <meta property="og:description" content="Portfolio Muzi Adriyan, pelajar dan web developer yang aktif mempelajari teknologi serta membangun berbagai proyek digital.">
+    <meta property="og:url" content="https://muzi-adriyan.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Muzi Adriyan — Web Developer & Digital Creator">
+    <meta name="twitter:description" content="Portfolio Muzi Adriyan, pelajar dan web developer yang aktif mempelajari teknologi serta membangun berbagai proyek digital.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://muzi-adriyan.com">
+    
+    <title>Muzi Adriyan — Web Developer & Digital Creator</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muzi Adriyan",
+        "jobTitle": "Web Developer & Digital Creator",
+        "description": "Pelajar yang aktif mempelajari web development dan membangun berbagai proyek digital",
+        "url": "https://muzi-adriyan.com",
+        "sameAs": [
+            "https://instagram.com",
+            "https://tiktok.com",
+            "https://github.com",
+            "https://facebook.com",
+            "https://youtube.com",
+            "https://wa.me"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #ffffff;
+            --secondary-gray: #1a1a1a;
+            --tertiary-gray: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-blue: #0099ff;
+            --accent-blue-glow: #0099ff33;
+            --glow-color: rgba(0, 153, 255, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ==================== LOADING SCREEN ==================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOutLoading 0.8s ease-out 2.5s forwards;
+        }
+
+        .loading-screen.hidden {
+            display: none;
+        }
+
+        .loading-content {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .loading-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .spinner-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-top-color: var(--accent-blue);
+            border-right-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .spinner-circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 10px;
+            left: 10px;
+            border-top-color: #00ccff;
+            border-right-color: #00ccff;
+            animation: spin 1.2s linear infinite reverse;
+        }
+
+        .spinner-circle:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            left: 20px;
+            border-top-color: #0077cc;
+            border-right-color: #0077cc;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeOutLoading {
+            0% {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            100% {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== LOGIN SCREEN ==================== */
+        .login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+            animation: fadeOutLogin 0.8s ease-out 0.5s forwards;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .login-container.hidden {
+            display: none;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 2.5rem;
+            margin: 1rem;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 153, 255, 0.1);
+            animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOutLogin {
+            0% {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            100% {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        .login-box:hover {
+            box-shadow: 0 8px 32px rgba(0, 153, 255, 0.2);
+            transform: translateZ(20px) rotateX(2deg);
+            transition: all 0.3s ease-out;
+        }
+
+        .login-logo {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00ccff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(45, 45, 45, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 0 var(--accent-blue-glow);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(45, 45, 45, 0.9);
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.3), inset 0 0 0 1px rgba(0, 153, 255, 0.2);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(176, 176, 176, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0077cc 100%);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-btn.loading {
+            pointer-events: none;
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            z-index: -1;
+        }
+
+        .grid-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(0, 153, 255, 0.05) 25%, rgba(0, 153, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 153, 255, 0.05) 75%, rgba(0, 153, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 153, 255, 0.05) 25%, rgba(0, 153, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 153, 255, 0.05) 75%, rgba(0, 153, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 153, 255, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+        }
+
+        /* ==================== NAVBAR ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #00ccff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .time-display {
+            color: var(--accent-blue);
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem 1.5rem;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .time-display {
+                display: none;
+            }
+        }
+
+        /* ==================== WELCOME SECTION ==================== */
+        .welcome-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-background {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .welcome-label {
+            font-size: clamp(0.8rem, 3vw, 1.2rem);
+            color: var(--accent-blue);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .welcome-title {
+            font-size: clamp(2.5rem, 10vw, 6rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+        }
+
+        .welcome-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-cta {
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0077cc 100%);
+            border: none;
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(0, 153, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 6rem 4rem;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 2rem;
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50px;
+            color: var(--accent-blue);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 153, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+        }
+
+        .hero-3d {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rotating-cube {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 6s linear infinite;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid var(--accent-blue);
+            background: rgba(0, 153, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            backdrop-filter: blur(10px);
+        }
+
+        .cube-face:nth-child(1) { transform: translateZ(125px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(125px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(125px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(125px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(125px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(125px); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-3d {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ==================== SECTION LAYOUT ==================== */
+        section {
+            min-height: 100vh;
+            padding: 6rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-card {
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .about-card:hover {
+            background: rgba(45, 45, 45, 0.8);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 32px rgba(0, 153, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .about-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            background: rgba(45, 45, 45, 0.8);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.3);
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-progress {
+            height: 4px;
+            background: rgba(0, 153, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, #00ccff 100%);
+            width: 0;
+            animation: fillProgress 1.5s ease-out forwards;
+            border-radius: 2px;
+        }
+
+        @keyframes fillProgress {
+            from { width: 0; }
+            to { width: 85%; }
+        }
+
+        /* ==================== PROJECTS SECTION ==================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        .project-card:hover {
+            background: rgba(45, 45, 45, 0.9);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 50px rgba(0, 153, 255, 0.3);
+            transform: translateY(-15px) scale(1.02);
+        }
+
+        .project-header {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.1) 0%, rgba(0, 119, 204, 0.1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 153, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-category {
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 50px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== SOCIAL MEDIA SECTION ==================== */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 153, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-card:hover {
+            background: rgba(45, 45, 45, 0.9);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.3);
+            transform: translateY(-10px) rotateZ(5deg) scale(1.05);
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-card:hover .social-icon {
+            transform: scale(1.2);
+        }
+
+        .social-name {
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== NEWS SECTION ==================== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-card {
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            background: rgba(45, 45, 45, 0.9);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 32px rgba(0, 153, 255, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .news-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 119, 204, 0.15) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-thumbnail::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 153, 255, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .news-card:hover .news-thumbnail::after {
+            animation: zoom 0.6s ease-out;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: rgba(0, 153, 255, 0.1);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .news-btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .news-btn:hover {
+            gap: 0.5rem;
+            transform: translateX(5px);
+        }
+
+        .view-all-news {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(45, 45, 45, 0.5);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input input,
+        .form-input textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input input:focus,
+        .form-input textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+            background: rgba(20, 20, 20, 0.9);
+        }
+
+        .form-input input::placeholder,
+        .form-input textarea::placeholder {
+            color: rgba(176, 176, 176, 0.5);
+        }
+
+        .form-input textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #0077cc 100%);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+        }
+
+        .contact-form button:hover {
+            box-shadow: 0 8px 30px rgba(0, 153, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #00ccff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            border-radius: 50%;
+            color: var(--accent-blue);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ==================== INTERSECTION OBSERVER ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scale-in.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.5rem;
+            }
+
+            .projects-grid,
+            .social-grid,
+            .skills-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="grid-background"></div>
+        <div class="particles" id="particlesContainer"></div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-title">MUZI ADRIYAN</div>
+            <div class="loading-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box" id="loginBox">
+            <div class="login-logo">MUZI ADRIYAN</div>
+            <h2 class="login-title">Welcome Back</h2>
+            <p class="login-subtitle">Masuk untuk melanjutkan ke portfolio.</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username / Email</label>
+                    <input type="text" id="username" placeholder="Masukkan username atau email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="login-btn">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">MUZI</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active" data-section="welcome">HOME</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">ABOUT</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">PROJECTS</a></li>
+            <li><a href="#news" class="nav-link" data-section="news">NEWS</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">CONTACT</a></li>
+            <li class="time-display" id="timeDisplay">00:00:00</li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section" id="welcome">
+        <div class="welcome-background"></div>
+        <div class="welcome-label">WELCOME TO</div>
+        <h1 class="welcome-title">MUZI ADRIYAN</h1>
+        <p class="welcome-subtitle">Personal Portfolio & Digital Projects</p>
+        <div class="welcome-cta">
+            <button class="btn-primary" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">EXPLORE PORTFOLIO</button>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>MUZI ADRIYAN</h1>
+            <p>Student • Web Developer • Digital Creator</p>
+            <p class="hero-description">Pelajar yang aktif mempelajari web development dan membangun berbagai proyek digital dengan fokus pada desain, teknologi, dan pengalaman pengguna.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">VIEW PROJECTS</a>
+                <a href="#contact" class="btn-secondary">CONTACT ME</a>
+            </div>
+        </div>
+        <div class="hero-3d">
+            <div class="rotating-cube" id="cube3d">
+                <div class="cube-face">M</div>
+                <div class="cube-face">A</div>
+                <div class="cube-face">D</div>
+                <div class="cube-face">I</div>
+                <div class="cube-face">A</div>
+                <div class="cube-face">N</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in">ABOUT ME</h2>
+        <p class="section-subtitle fade-in">Profil Profesional</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3 class="fade-in">Muzi Adriyan</h3>
+                <p class="fade-in">
+                    Muzi Adriyan merupakan pelajar yang memiliki ketertarikan pada teknologi, pemrograman, dan pengembangan website. Ia aktif mempelajari web development secara mandiri serta mengembangkan berbagai proyek digital untuk meningkatkan kemampuan dan pengalamannya.
+                </p>
+            </div>
+            
+            <div class="about-cards">
+                <div class="about-card fade-in">
+                    <h4>Nama</h4>
+                    <p>Muzi Adriyan</p>
+                </div>
+                <div class="about-card fade-in">
+                    <h4>Status</h4>
+                    <p>Pelajar SMA</p>
+                </div>
+                <div class="about-card fade-in">
+                    <h4>Asal</h4>
+                    <p>Kabupaten Bekasi, Jawa Barat</p>
+                </div>
+                <div class="about-card fade-in">
+                    <h4>Fokus</h4>
+                    <p>Web Development & Digital Projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title fade-in">SKILLS</h2>
+        <p class="section-subtitle fade-in">Kemampuan & Keahlian</p>
+        
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-name">HTML</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">CSS</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">Web Development</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">UI/UX</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">Responsive Design</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">GitHub</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-name">Digital Projects</div>
+                <div class="skill-progress"><div class="skill-bar"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title fade-in">MY PROJECTS</h2>
+        <p class="section-subtitle fade-in">Proyek Digital Terbaru</p>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">📱</div>
+                <div class="project-info">
+                    <div class="project-category">PORTFOLIO</div>
+                    <h3 class="project-title">Personal Portfolio</h3>
+                    <p class="project-description">Website portfolio pribadi dengan desain futuristik, animasi 3D, dan fitur login interaktif.</p>
+                    <a href="#" class="project-btn" onclick="event.preventDefault(); alert('Demo tersedia')">VIEW PROJECT</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">💳</div>
+                <div class="project-info">
+                    <div class="project-category">E-COMMERCE</div>
+                    <h3 class="project-title">Top Up Game Website</h3>
+                    <p class="project-description">Platform penjualan top-up game dengan integrasi payment gateway dan dashboard admin real-time.</p>
+                    <a href="#" class="project-btn" onclick="event.preventDefault(); alert('Demo tersedia')">VIEW PROJECT</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">📰</div>
+                <div class="project-info">
+                    <div class="project-category">PORTAL BERITA</div>
+                    <h3 class="project-title">News Website</h3>
+                    <p class="project-description">Website portal berita modern dengan fitur kategori, pencarian, dan sistem manajemen konten.</p>
+                    <a href="#" class="project-btn" onclick="event.preventDefault(); alert('Demo tersedia')">VIEW PROJECT</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">⚙</div>
+                <div class="project-info">
+                    <div class="project-category">DASHBOARD</div>
+                    <h3 class="project-title">Dashboard Admin</h3>
+                    <p class="project-description">Dashboard administratif dengan analitik data, manajemen user, dan visualisasi statistik real-time.</p>
+                    <a href="#" class="project-btn" onclick="event.preventDefault(); alert('Demo tersedia')">VIEW PROJECT</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">🌐</div>
+                <div class="project-info">
+                    <div class="project-category">WEBSITE</div>
+                    <h3 class="project-title">Digital Website Project</h3>
+                    <p class="project-description">Website proyek digital multifungsi dengan fitur interaktif, responsif, dan performa tinggi.</p>
+                    <a href="#" class="project-btn" onclick="event.preventDefault(); alert('Demo tersedia')">VIEW PROJECT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social">
+        <h2 class="section-title fade-in">CONNECT WITH ME</h2>
+        <p class="section-subtitle fade-in">Follow Media Sosial Kami</p>
+        
+        <div class="social-grid">
+            <a href="https://instagram.com" target="_blank" class="social-card fade-in" aria-label="Instagram">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                    </svg>
+                </div>
+                <div class="social-name">Instagram</div>
+            </a>
+
+            <a href="https://tiktok.com" target="_blank" class="social-card fade-in" aria-label="TikTok">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.89 2.89 0 1 1-5.92-2.32c.44-.94 1.41-1.74 2.32-1.74V9.05a6.53 6.53 0 0 0-5.59 3.5 6.52 6.52 0 0 0 11.86 3.86A6.48 6.48 0 0 0 20 8.74v-2A4.6 4.6 0 0 1 19.59 6.69z"/>
+                    </svg>
+                </div>
+                <div class="social-name">TikTok</div>
+            </a>
+
+            <a href="https://wa.me" target="_blank" class="social-card fade-in" aria-label="WhatsApp">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 0 0-6.923 6.928c0 1.529.44 3.013 1.271 4.307L2.05 21.95l4.838-1.271c1.259.736 2.689 1.124 4.17 1.124h.004c3.831 0 6.956-3.124 6.956-6.956 0-1.858-.723-3.603-2.036-4.917-1.314-1.314-3.056-2.036-4.915-2.036"/>
+                    </svg>
+                </div>
+                <div class="social-name">WhatsApp</div>
+            </a>
+
+            <a href="https://github.com" target="_blank" class="social-card fade-in" aria-label="GitHub">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div class="social-name">GitHub</div>
+            </a>
+
+            <a href="https://facebook.com" target="_blank" class="social-card fade-in" aria-label="Facebook">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </div>
+                <div class="social-name">Facebook</div>
+            </a>
+
+            <a href="https://youtube.com" target="_blank" class="social-card fade-in" aria-label="YouTube">
+                <div class="social-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </div>
+                <div class="social-name">YouTube</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <h2 class="section-title fade-in">BERITA TERBARU</h2>
+        <p class="section-subtitle fade-in">Artikel dan Berita Terkini</p>
+        
+        <div class="news-grid">
+            <div class="news-card fade-in">
+                <div class="news-thumbnail">📖</div>
+                <div class="news-content">
+                    <span class="news-category">PROFIL</span>
+                    <h3 class="news-title">Perjalanan Muzi Adriyan Membangun Proyek Digital</h3>
+                    <p class="news-date">15 Agustus 2024</p>
+                    <p class="news-excerpt">Mengenal lebih dekat tentang perjalanan Muzi Adriyan dalam membangun berbagai proyek digital dan meraih kesuksesan di dunia teknologi.</p>
+                    <a href="berita.html" class="news-btn">BACA SELENGKAPNYA →</a>
+                </div>
+            </div>
+
+            <div class="news-card fade-in">
+                <div class="news-thumbnail">💻</div>
+                <div class="news-content">
+                    <span class="news-category">WEB DEVELOPMENT</span>
+                    <h3 class="news-title">Belajar Web Development dan Membangun Berbagai Proyek Digital</h3>
+                    <p class="news-date">10 Agustus 2024</p>
+                    <p class="news-excerpt">Tips dan trik untuk memulai belajar web development dari nol dan membangun portofolio proyek yang mengesankan.</p>
+                    <a href="berita.html" class="news-btn">BACA SELENGKAPNYA →</a>
+                </div>
+            </div>
+
+            <div class="news-card fade-in">
+                <div class="news-thumbnail">🚀</div>
+                <div class="news-content">
+                    <span class="news-category">TEKNOLOGI</span>
+                    <h3 class="news-title">Perkembangan Teknologi dan Dunia Web Development</h3>
+                    <p class="news-date">05 Agustus 2024</p>
+                    <p class="news-excerpt">Tren terbaru dalam industri teknologi dan perkembangan web development yang perlu Anda ketahui tahun ini.</p>
+                    <a href="berita.html" class="news-btn">BACA SELENGKAPNYA →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all-news">
+            <a href="berita.html" class="btn-primary">LIHAT SEMUA BERITA</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in">CONTACT ME</h2>
+        <p class="section-subtitle fade-in">Hubungi Saya Sekarang</p>
+        
+        <div class="contact-wrapper">
+            <div class="contact-form fade-in">
+                <form id="contactForm">
+                    <div class="form-input">
+                        <input type="text" id="contactName" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="email" id="contactEmail" placeholder="Email Anda" required>
+                    </div>
+                    <div class="form-input">
+                        <textarea id="contactMessage" placeholder="Pesan Anda" required></textarea>
+                    </div>
+                    <button type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>MUZI ADRIYAN</h3>
+            <p>Personal Portfolio & Digital Projects</p>
+            
+            <div class="footer-social">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <circle cx="17.5" cy="6.5" r="1.5"></circle>
+                    </svg>
+                </a>
+                <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.89 2.89 0 1 1-5.92-2.32c.44-.94 1.41-1.74 2.32-1.74V9.05a6.53 6.53 0 0 0-5.59 3.5 6.52 6.52 0 0 0 11.86 3.86A6.48 6.48 0 0 0 20 8.74v-2A4.6 4.6 0 0 1 19.59 6.69z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me" target="_blank" aria-label="WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 0 0-6.923 6.928c0 1.529.44 3.013 1.271 4.307L2.05 21.95l4.838-1.271c1.259.736 2.689 1.124 4.17 1.124h.004c3.831 0 6.956-3.124 6.956-6.956 0-1.858-.723-3.603-2.036-4.917-1.314-1.314-3.056-2.036-4.915-2.036"/>
+                    </svg>
+                </a>
+                <a href="https://github.com" target="_blank" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                © 2026 Muzi Adriyan. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== PARTICLES ANIMATION ====================
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = window.innerWidth > 768 ? 50 : 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const tx = (Math.random() - 0.5) * 100;
+                const ty = (Math.random() - 0.5) * 100;
+                const delay = Math.random() * 5;
+                
+                particle.style.left = x + '%';
+                particle.style.top = y + '%';
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                particle.style.animationDelay = delay + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // ==================== LOADING SCREEN ====================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.classList.add('hidden');
+            }, 2500);
+        });
+
+        // ==================== LOGIN HANDLER ====================
+        const loginForm = document.getElementById('loginForm');
+        const loginContainer = document.getElementById('loginContainer');
+        const loginBox = document.getElementById('loginBox');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                const btn = loginForm.querySelector('button');
+                btn.classList.add('loading');
+                btn.textContent = 'LOGGING IN...';
+
+                setTimeout(() => {
+                    loginContainer.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 800);
+            }
+        });
+
+        // Login Box Mouse Follow Effect
+        loginBox.addEventListener('mousemove', (e) => {
+            const rect = loginBox.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const rotateX = (y - rect.height / 2) / 10;
+            const rotateY = (x - rect.width / 2) / 10;
+            
+            loginBox.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        loginBox.addEventListener('mouseleave', () => {
+            loginBox.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+
+        // ==================== NAVBAR INTERACTIONS ====================
+        const navLinks = document.querySelectorAll('.nav-link');
+        const hamburger = document.getElementById('hamburger');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                hamburger.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.7)';
+            }
+        });
+
+        // ==================== REAL-TIME CLOCK ====================
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const timeDisplay = document.getElementById('timeDisplay');
+            if (timeDisplay) {
+                timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // ==================== INTERSECTION OBSERVER ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ==================== 3D TILT EFFECT ====================
+        document.querySelectorAll('.about-card, .skill-card, .project-card, .news-card, .social-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const rotateX = (y - rect.height / 2) / 20;
+                const rotateY = (x - rect.width / 2) / 20;
+                
+                if (window.innerWidth > 768) {
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // ==================== FORM HANDLING ====================
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+
+            if (name && email && message) {
+                alert('Terima kasih! Pesan Anda telah dikirim.');
+                contactForm.reset();
+            }
+        });
+
+        // ==================== INITIALIZE ====================
+        createParticles();
+        
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
