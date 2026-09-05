@@ -1190,6 +1190,7 @@
                 summary: "Bagaimana integrasi visual 3D dan antarmuka futuristik mengubah tolok ukur pengalaman pengguna di era web modern.",
                 linkKey: "news1",
                 isMain: true
+                bannerImage: "4ED01E3E-5C33-443A-9EC9-05F8D2413BF5.png"
             },
             {
                 id: 2,
@@ -1449,10 +1450,9 @@
 
             const mainNewsHtml = `
                 <div class="glass-panel project-card card-3d reveal news-main">
-                    <div class="project-thumb">
-                        <div style="width:100%;height:100%;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.8rem;">
-                            ARTICLE FEATURED
-                        </div>
+                    <div class="article-thumb">
+                     <img src="${a.bannerImage}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                     </div>
                     </div>
                     <div class="project-content">
                         <div class="news-meta">
