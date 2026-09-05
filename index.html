@@ -1172,7 +1172,7 @@
 
         // Data Projects
         const projectsData = [
-            { id: 1, title: "Portfolio Website", category: "Web Application", desc: "Website portofolio interaktif berbasis 3D dan animasi futuristik modern.", linkKey: "project1" },
+            { id: 1, title: "Portfolio Website", category: "Web Application", desc: "Website portofolio interaktif berbasis 3D dan animasi futuristik modern.", linkKey: "project1", bannerImage: "" },
             { id: 2, title: "Website Berita", category: "Portal Information", desc: "Platform berita digital dengan sistem layout responsif dan pengalaman membaca optimal.", linkKey: "project2" },
             { id: 3, title: "Website Top Up Game", category: "E-Commerce", desc: "Layanan transaksi digital top up game yang cepat, aman, dan user-friendly.", linkKey: "project3" },
             { id: 4, title: "Dashboard Admin", category: "Management System", desc: "Sistem manajemen data dan analitik dengan visualisasi ringkas dan modern.", linkKey: "project4" },
@@ -1424,7 +1424,8 @@
                 return `
                 <div class="glass-panel project-card card-3d reveal">
                     <div class="project-thumb">
-                        <div style="width:100%;height:100%;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.8rem;letter-spacing:1px;">
+                     <img src="${p.bannerImage}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;">
+                          </div>
                             ${p.title.toUpperCase()}
                         </div>
                     </div>
